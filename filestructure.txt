@@ -1,0 +1,17 @@
+|-- .env
+|-- .gitignore
+|-- app.js
+|-- controllers
+    |-- groupController.js
+    |-- transactionController.js
+    |-- userController.js
+|-- index.js
+|-- models
+    |-- groupModel.js
+    |-- transactionModel.js
+    |-- userModel.js
+|-- package-lock.json
+|-- package.json
+|-- routes.js
+|-- services
+    |-- db.js

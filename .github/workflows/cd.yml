@@ -7,15 +7,21 @@ on:
       - completed
 
 jobs:
-
-  build:
-
+  deploy:
     runs-on: self-hosted
 
     steps:
     - name: Pull Docker image
-      run: sudo docker pull 2005parth/express-api:latest
-    - name: Delete Old docker container
-      run: sudo docker rm -f express-api-container || true
-    - name: Run Docker Container
-      run: sudo docker run -d -p 8080:8080 --name express-api-container 2005parth/express-api:latest
+      run: |
+        echo "Pulling Docker image..."
+        sudo docker pull 2005parth/express-api:latest
+
+    - name: Stop and Remove Old Container
+      run: |
+        echo "Stopping and removing old container if it exists..."
+        sudo docker rm -f express-api-container || true
+
+    - name: Run New Container
+      run: |
+        echo "Starting new container..."
+        sudo docker run -d -p 8080:8080 --name express-api-container 2005parth/express-api:latest

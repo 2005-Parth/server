@@ -21,4 +21,11 @@ router.post('/group/getGroupMembers', getGroupMembers);
 router.post('/transaction/addExpense', addExpense);
 router.post('/transaction/settleUp', settleUp);
 
+// Echo Route
+router.get("/echo/:what", (req, res) => {
+    res.json({
+        message: `echo: ${req.params.what}`
+    });
+});
+
 module.exports = router;

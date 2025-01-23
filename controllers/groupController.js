@@ -97,7 +97,7 @@ const getGroups = async (req, res) => {
             return res.status(404).json({message: "User not found"});
         }
         const groups = await Group.find({_id: {$in: user.groups}});
-        return res.status(200).json({groups});
+        return res.status(200).json(groups);
     }
     catch(err){
         return res.status(500).json({error: err.message});

@@ -5,6 +5,7 @@
     |-- groupController.js
     |-- transactionController.js
     |-- userController.js
+|-- DockerFile
 |-- index.js
 |-- models
     |-- groupModel.js

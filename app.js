@@ -24,6 +24,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  console.log(res.statusCode);
+  console.log(res.statusMessage);
+  console.log(res.body);
+  next();
+});
+
 // Middleware for parsing JSON and URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

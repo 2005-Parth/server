@@ -2,6 +2,7 @@
 |-- .env
 |-- .github
     |-- workflows
+        |-- cd.yml
         |-- ci.yml
 |-- .gitignore
 |-- app.js

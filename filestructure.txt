@@ -9,7 +9,7 @@
     |-- groupController.js
     |-- transactionController.js
     |-- userController.js
-|-- DockerFile
+|-- Dockerfile
 |-- index.js
 |-- models
     |-- groupModel.js

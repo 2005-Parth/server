@@ -22,7 +22,7 @@ jobs:
       run: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
 
     - name: Build the Docker image
-    run: docker build -t split_it_server .
+      run: docker build -t split_it_server . --file Dockerfile
 
     - name: Push the Docker image
     run: docker tag split_it_server $DOCKERHUB_USERNAME/split_it_server

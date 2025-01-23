@@ -23,7 +23,7 @@ jobs:
         echo "Successfully logged in to Docker Hub"
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/express-api:latest .
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/express-api:latest . -f ./Dockerfile
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/express-api:latest
 
     - name: SSH to EC2 and deploy

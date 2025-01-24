@@ -18,6 +18,8 @@ EXPOSE 3000
 
 
 # Environment variables
+# local mongodb with docker admin:admin123
+ENV MONGO_URI="mongodb://admin:admin123@mongo:27017/split_it"
 ENV PORT=3000
 ENV HOST="0.0.0.0"
 ENV DB_NAME="split_it"

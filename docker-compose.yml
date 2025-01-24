@@ -23,7 +23,6 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_URI: "mongodb://admin:admin123@mongo:27017/split_it?authSource=admin"
       PORT: 3000
       HOST: "0.0.0.0"
       DB_NAME: "split_it"

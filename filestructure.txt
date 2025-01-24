@@ -10,6 +10,7 @@
     |-- groupController.js
     |-- transactionController.js
     |-- userController.js
+|-- docker-compose.yml
 |-- Dockerfile
 |-- index.js
 |-- models

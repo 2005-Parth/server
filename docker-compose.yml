@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  express-api:
+    image: ${ DOCKERHUB_USERNAME }/express-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/split_it
+      - PORT=3000
+      - HOST=0.0.0.0
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: usr01
+      MONGO_INITDB_ROOT_PASSWORD: usr01
+      MONGO_INITDB_DATABASE: split_it
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

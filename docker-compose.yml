@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   express-api:
-    image: ${ DOCKERHUB_USERNAME }/express-api:latest
+    image: 2005parth/express-api:latest
     build:
       context: .
       dockerfile: Dockerfile

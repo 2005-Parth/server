@@ -11,17 +11,17 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Pull Docker image
       run: |
         echo "Pulling Docker image..."
         sudo docker pull 2005parth/express-api:latest
 
-    - name: Stop and Remove Old Container
+    - name: Deploy with Docker Compose
       run: |
-        echo "Stopping and removing old container if it exists..."
-        sudo docker rm -f express-api-container || true
-
-    - name: Run New Container
-      run: |
-        echo "Starting new container..."
-        sudo docker run -d -p 3000:3000 --name express-api-container 2005parth/express-api:latest
+        echo "Stopping and removing old containers..."
+        sudo docker-compose down || true
+        echo "Starting new containers with Docker Compose..."
+        sudo docker-compose up -d

@@ -110,5 +110,4 @@ const getUsers = async (req, res) => {
   }
 };
 
-
 module.exports = { getUserById, getUserByEmail, createUser, getUsersByGroupId, getUsers };

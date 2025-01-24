@@ -1,31 +1,32 @@
 version: '3.8'
 
 services:
-  express-api:
-    image: 2005parth/express-api:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/split_it
-      - PORT=3000
-      - HOST=0.0.0.0
-    depends_on:
-      - mongo
-
   mongo:
-    image: mongo:7.0
+    image: mongo:latest
     container_name: mongo
+    restart: always
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: usr01
-      MONGO_INITDB_ROOT_PASSWORD: usr01
-      MONGO_INITDB_DATABASE: split_it
     volumes:
       - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: split_it
+
+  express-api:
+    image: "${secrets.DOCKERHUB_USERNAME}/express-api:latest"
+    container_name: express-api
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: "mongodb://admin:admin123@mongo:27017/split_it?authSource=admin"
+      PORT: 3000
+      HOST: "0.0.0.0"
+      DB_NAME: "split_it"
 
 volumes:
   mongo_data:

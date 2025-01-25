@@ -10,9 +10,7 @@ services:
     volumes:
       - mongo_data:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-      MONGO_INITDB_DATABASE: split_it
+      MONGO_URI: mongodb://mongo:27017/split_it
 
   express-api:
     image: "2005parth/express-api:latest"

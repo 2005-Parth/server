@@ -9,8 +9,6 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-    environment:
-      MONGO_URI: mongodb://mongo:27017/split_it
 
   express-api:
     image: "2005parth/express-api:latest"
@@ -21,6 +19,7 @@ services:
     depends_on:
       - mongo
     environment:
+      MONGO_URI: mongodb://mongo:27017/split_it
       PORT: 3000
       HOST: "0.0.0.0"
       DB_NAME: "split_it"

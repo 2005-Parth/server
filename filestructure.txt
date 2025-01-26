@@ -25,4 +25,3 @@
 |-- routes.js
 |-- services
     |-- db.js
-|-- vercel.json

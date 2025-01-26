@@ -5,6 +5,9 @@
         |-- cd.yml
         |-- ci.yml
 |-- .gitignore
+|-- .vercel
+    |-- project.json
+    |-- README.txt
 |-- app.js
 |-- controllers
     |-- groupController.js

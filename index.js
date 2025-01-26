@@ -8,3 +8,5 @@ connectDB().then(() => {
         console.log(`Server is running on http://${HOST}:${PORT}`);
     });
 });
+
+module.exports = app;
